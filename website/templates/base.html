@@ -1,0 +1,430 @@
+{% load static %}
+
+<html lang="ar" dir="rtl">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="{% block meta_description %} عياده دنتست  {% endblock %}">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}عياده أسنان{%endblock %}</title>
+        <!-- Normalize -->
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
+        <!-- Main Faile Css  -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+        <!-- Font Google -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <!-- slide -->
+        <link rel="stylesheet" href="{% static './css/splide.min.css' %}" />
+        <!-- Aos Scroll -->
+        <link rel="stylesheet" href="{% static './css/aos.css' %}" />
+
+        <!-- datatable cdn start-->
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+        <script src=" https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
+
+         <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
+
+
+        <script>
+       $(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+</script>
+
+        <!--datatable cdn end-->
+    </head>
+    <body>
+        <!-- Start Nav -->
+        <nav class="navbar py-3 navbar-expand-lg navbar-light bg-white">
+            <div
+                class="container justify-content-between justify-content-lg-center gap-4"
+            >
+
+                <a class="navbar-brand" href="{% url 'home' %}"
+                    ><img src="{% static './images/logo.png' %}" alt=""
+                /></a>
+                <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+                <div
+                    class="collapse navbar-collapse flex-grow-1 flex-lg-grow-0"
+                    id="navbarSupportedContent"
+                >
+                {% if not request.user.is_staff %}
+
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a
+                                class="nav-link active"
+                                aria-current="page"
+                                href="{% url 'home' %}"
+                                >الرئيسية</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'about' %}">من نحن</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                           
+                            
+                       
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'pricing' %}"> الخدمات</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'doctors' %}">فريق العمل </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contact' %}"> أتصل بنا </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+
+                                href="#"
+                                id="navbarDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                            
+                                تسجيل الدخول
+                            </a>
+                            <ul
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdown"
+                            >
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'login' %}">
+                                        <i class="fa-solid fa-caret-left"></i>
+                                        مشرف
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa-solid fa-caret-left"></i>
+
+                                          طبيب</a
+                                    >
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa-solid fa-caret-left"></i>
+
+                                        عميل
+                                    </a>
+                                </li>
+
+
+
+                    </ul>
+                         {% endif %}
+                         {% if request.user.is_staff %}
+                         <li class="nav-item">
+                            <a
+                                class="nav-link active"
+                                aria-current="page"
+                                href="{% url 'home' %}"
+                                >الرئيسية</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'index' %}"> <span class="sr-only">(current)</span> لوحة المشرف</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+
+                                href="#"
+                                id="navbarDropdown2"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+
+                                طبيب
+                            </a>
+                            <ul
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdown"
+                            >
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'add_doctor' %}">
+                                        <i class="fa-solid fa-caret-left"></i>
+                                        اضافة طبيب
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'view_doctor' %}">
+                                        <i class="fa-solid fa-caret-left"></i>
+                                        عرض الأطباء
+                                    </a>
+                                </li>
+                    </ul>
+                         <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+
+                                href="#"
+                                id="navbarDropdown3"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+
+                                عميل
+                            </a>
+                            <ul
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdown"
+                            >
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'add_patient' %}">
+                                        <i class="fa-solid fa-caret-left"></i>
+                                        اضافة عميل
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'view_patient' %}">
+                                        <i class="fa-solid fa-caret-left"></i>
+
+                                            عرض العملاء </a>
+                                </li>
+
+
+
+                    </ul>
+
+                           <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+
+                                href="#"
+                                id="navbarDropdown4"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+
+                                موعد
+                            </a>
+                            <ul
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdown"
+                            >
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'add_appoinment' %}">
+                                        <i class="fa-solid fa-caret-left"></i>
+                                        اضافة موعد
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'view_appoinment' %}">
+                                        <i class="fa-solid fa-caret-left"></i>
+
+                                          عرض المواعيد</a
+                                    >
+                                </li>
+
+
+
+                    </ul>
+
+                      <li class="nav-item">
+
+                            <a class="nav-link" href="{% url 'logout' %}">تسجيل الخروج</a>
+                        {% endif %}
+                        </li>
+
+
+                    </ul>
+            </nav>
+        <!-- End Nav -->
+
+<style>
+        nav  li {
+  list-style-type: none;
+}
+</style>
+
+
+
+
+
+
+{% block content %}
+
+
+{% endblock %}
+
+  <!-- Start Footer -->
+        <footer>
+            <!-- Footer Top -->
+            <div class="footer-top py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 mb-4 mb-lg-0">
+                            <h3>الأقسام</h3>
+                            <div class="row">
+                                <div class="col-sm-6 col-xl-4">
+                                    <ul class="sections">
+                                        <li>
+                                            <a href="{% url 'home' %}"
+                                                ><i
+                                                    class="fa-solid fa-angle-left"
+                                                ></i>
+                                                الرائيسية</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                ><i
+                                                    class="fa-solid fa-angle-left"
+                                                ></i>
+                                                من نحن</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'pricing' %}">
+                                                <i
+                                                    class="fa-solid fa-angle-left"
+                                                ></i>
+                                                الخدمات</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'doctors' %}"
+                                                ><i
+                                                    class="fa-solid fa-angle-left"
+                                                ></i>
+                                                فريق العمل</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6 col-xl-4">
+                                    <ul class="sections">
+                                        <li>
+                                            <a href="{% url 'contact' %}"
+                                                ><i
+                                                    class="fa-solid fa-angle-left"
+                                                ></i>
+                                                اتصل بنا</a
+                                            >
+                                        </li>
+
+
+                                    </ul>
+                               
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="row">
+                                <div class="col-xl-6 me-auto">
+                                    <h3>للتواصل معنا</h3>
+                                    <ul
+                                        class="align-items-start align-items-xl-end"
+                                    >
+                                        <li>
+                                           01145875634+
+                                            <i class="fa-solid fa-phone"></i>
+                                        </li>
+                                        <li>
+                                            01234985645+
+                                            <i
+                                                class="fa-solid fa-mobile-screen"
+                                            ></i>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="mailto:info@websitename.com"
+                                            >
+                                                info@websitename.com
+                                                <i
+                                                    class="fa-solid fa-envelope"
+                                                ></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">www.websitename.com</a>
+                                            <i class="fa-solid fa-globe"></i>
+                                        </li>
+                                    </ul>
+                                    <div
+                                        class="group-social d-flex align-items-center gap-2 justify-content-start justify-content-xl-end"
+                                    >
+                                        <a href="" class="whats">
+                                            <i
+                                                class="fa-brands fa-whatsapp"
+                                            ></i>
+                                        </a>
+                                        <a href="" class="facebook">
+                                            <i
+                                                class="fa-brands fa-facebook-f"
+                                            ></i>
+                                        </a>
+                                        <a href="" class="twitter">
+                                            <i class="fa-brands fa-twitter"></i>
+                                        </a>
+                                        <a href="" class="snap">
+                                            <i
+                                                class="fa-brands fa-snapchat"
+                                            ></i>
+                                        </a>
+                                        <a href="" class="insta">
+                                            <i
+                                                class="fa-brands fa-instagram"
+                                            ></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Js Files -->
+        <script src="{% static 'js/aos.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'js/all.min.js' %}"></script>
+        <script src="{% static './js/splide.min.js' %}"></script>
+      </body>

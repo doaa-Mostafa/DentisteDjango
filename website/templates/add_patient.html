@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="container">
+
+    <br/>
+    <br/>
+        <div class="main-hidd mb-4 text-center">اضافة عميل</h3>
+
+        </div>
+    <br/>
+        <div class="container">
+
+                </div>
+            </div>
+            <div class="text-center">
+                <form  method="post">
+                    {% csrf_token %}
+                   <label>اسم العميل</label>
+                            <input type="text" name="name"  required/>
+                            <label>الجنس</label>
+                                <input type="text" name="gender"  required/>
+
+                                  <label>رقم الموبيل</label>
+                                <input type="text" name="contact"  required/>
+                        <br/>
+                       <br/>
+                        <div class="button">
+                            <input type="submit" value="اضافة" class="form-control btn btn-primary"/>
+                        </div>
+                    <br/>
+                       <br/>
+
+                </form>
+
+            </div>
+
+<style>
+    .button {
+    margin:20px;
+     max-width:200px;
+     position: relative;
+     left: -675px;
+     }
+
+</style>
+
+
+
+{% if error ==  "no" %}
+<script>
+    alert('Record Saved Successfully ');
+    window.location=({% url 'view_patient' %});
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Something went wrong , Try Again');
+
+</script>
+{% endif %}
+
+
+
+
+{% endblock %}

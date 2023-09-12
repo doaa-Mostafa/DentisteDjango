@@ -1,0 +1,43 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}الأسعار {% endblock %}
+{% block meta_description %} عياده دنتست افضل عياده اسنان فى الشرق الاوسط {% endblock %}
+
+{% block content %}
+<br>
+
+<h1>الخدمات</h1>
+<br>
+
+
+
+<table class="table table-dark table-striped">
+ 
+   <thead>
+     <tr>
+      <th>
+        الخدمة
+      </th>
+      <th>
+        السعر
+      </th>
+      <th>
+        الوصف
+      </th>
+   </thead>
+      {% for item in all %}
+    <tr>
+     
+      <td> <strong>{{item.service}}</strong></td>
+      <td>{{item.price}}</td>
+      <td>{{item.description}}</td>
+      
+    </tr>
+   {% endfor %}
+ 
+</table>
+
+
+{% endblock %}

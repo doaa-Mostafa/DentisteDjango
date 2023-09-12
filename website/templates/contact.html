@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %} أتصل بنا {% endblock %}
+{% block meta_description %} عياده دنتست افضل عياده اسنان فى الشرق الاوسط {% endblock %}
+
+{% block content %}
+
+
+
+        <!-- Strat section -->
+        {% if name %}
+                     <br/>
+                        <center>
+                        <h2>شكراً {{name}}!</h2>
+                        <p> لقد تم استلام رسالتك سنرد فى وقت قصير ....</p>
+                    </center>
+                    <br/>
+        {% else %}
+        <section class="contact-page py-5 ">
+            <div class="container">
+                <div class="main-hidd mb-4 text-center">أتصل بنا  </h3>
+                    
+                </div>
+                <div class="row reverse">
+                    <div class="col-lg-6">
+                        <div class="my-4">
+
+                            <iframe
+                                class="w-100"
+                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d863.8431009519147!2d30.965462031220767!3d29.997461486163996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458573fca14f8dd%3A0x5b4426c019012200!2sThe%20Memorial%20Souad%20Kafafi%20University%20Hospital!5e0!3m2!1sen!2seg!4v1670221739242!5m2!1sen!2seg"  width="600" 
+                                width="600"
+                                height="450"
+                                style="border: 0"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <form action="{% url 'contact' %}" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-6 my-4">
+                                    <span class="label">الأسم</span>
+                                    <input type="text" name="name" id="" />
+                                </div>
+                                <div class="col-lg-6 my-4">
+                                    <span class="label">الجوال</span>
+                                    <input type="text" name="mobile" id="" />
+                                </div>
+                                <div class="col-12">
+                                    <span class="label">البريد الالكتروني</span>
+                                    <input type="email" name="email" id="" />
+                                </div>
+                                <div class="col-12 my-4">
+                                    <span class="label">الرسالة</span>
+                                    <textarea name="text" id=""></textarea>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <input type="submit" value="إرسال" />
+                                </div>
+                            </div>
+                        </form>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- End section -->
+       
+        {% endif %}
+       
+
+{% endblock %}

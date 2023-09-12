@@ -1,0 +1,64 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+
+{% if error == "no" %}
+<script>
+    alert('Logged In Successfully ');
+    window.location=({% url 'index' %});
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Invalid Login Credential , Try Again');
+
+</script>
+{% endif %}
+
+<!-- Admin login  -->
+
+  <br/>
+    <div class="container">
+        <div class="main-hidd mb-4 text-center">       تسجيل دخول المشرف</h3>
+            
+        </div>
+        <div class="container">
+           
+                </div>
+            </div>
+            <div class="text-center">
+                <form  method="post">
+                    {% csrf_token %}
+                   <label>اسم المشرف</label>
+                            <input type="text" name="uname"  />
+                            <label>كلمة السر</label>
+                                <input type="password" name="pwd" />
+                        <br/>
+                       <br/>
+                        <div class="button">
+                            <input type="submit" value="تسجيل الدخول" class="form-control btn btn-primary"/>
+                        </div>
+                    <br/>
+                       <br/>
+
+                </form>
+                
+            </div>
+
+      
+    </div>
+
+<style>
+    .button {
+    margin:20px;
+     max-width:200px;
+     position: relative;
+     left: -700px;
+     }
+
+</style>
+
+
+<!-- End login -->
+{% endblock %}
+

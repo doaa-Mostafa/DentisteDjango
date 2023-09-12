@@ -1,0 +1,405 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+        <!-- Start LAnding -->
+        <section class="landing py-5">
+            <div class="container">
+                <div
+                    dir="ltr"
+                    class="splide ms-md-0 ms-auto me-auto"
+                    role="group"
+                    id="landing-slide"
+                    aria-label="Splide Basic HTML Example"
+                >
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <div class="text">
+                                    <h1>تقويم الأسنان</h1>
+                                    <h2>حتي تتمتع بأبتسامة ساحرة</h2>
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="text">
+                                    <h1>تقويم الأسنان</h1>
+                                    <h2>حتي تتمتع بأبتسامة ساحرة</h2>
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="text">
+                                    <h1>تقويم الأسنان</h1>
+                                    <h2>حتي تتمتع بأبتسامة ساحرة</h2>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Landing -->
+        <!-- Start reservation  -->
+        <section
+            class="reservation py-5"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-offset="150"
+        >
+            <div class="container">
+                <div class="box">
+                    <div class="row align-items-center">
+                        <div
+                            class="col-lg-5 px-4 mb-3 mb-lg-0 text-center text-lg-end"
+                        >
+                            <form class="d-flex flex-column gap-2" action="{% url 'appointment' %}" method="post">
+                                {% csrf_token %}
+                                <h2>لحجز موعد</h2>
+                                 <input
+                                    type="text"
+                                    placeholder="الاسم"
+                                    name="name"
+                                    id="name"
+                                />
+                                <input
+                                    type="email"
+                                    placeholder="البريد الالكتروني"
+                                    name="email"
+                                    id="email"
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="التلفون"
+                                    name="mobile"
+                                    id="mobile"
+                                />
+                                <div class="select position-relative">
+                                    <select class="w-100" name="time" id="">
+                                        <option value=" ٩ الى  ١٠ صباحاً ">٩ الى  ١٠ صباحاً</option>
+                                        <option value="١١ الى  ١٢ صباحاً<">١١ الى  ١٢ صباحاً</option>
+                                        <option value="٢ الى  ٤ مساءً<">٢ الى  ٤ مساءً</option>
+                                    </select>
+                                </div>
+                                <div class="group-inp position-relative">
+                                    <input
+                                        class="w-100"
+                                        type="text"
+                                        placeholder=" التاريخ"
+                                        name="date"
+                                        id="date"
+                                    />
+                                    <div class="icon-date">
+                                        <i
+                                            class="fa-solid fa-calendar-days position-absolute"
+                                        ></i>
+                                    </div>
+                                </div>
+                                <input type="submit" value="حجز الأن" />
+                            </form>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="cont-img">
+                                <img
+                                    class="img-fluid"
+                                    src="{% static './images/Layer 7.png' %}"
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End reservation -->
+        <!-- Start Why Us -->
+        <section
+            class="why-us py-5"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-offset="150"
+        >
+            <div class="container">
+                <div class="row">
+                    <div
+                        class="col-lg-6 ps-lg-4 text-center text-lg-end mb-3 mb-lg-0"
+                    >
+                        <div class="cont-img">
+                            <img
+                                class="img-fluid"
+                                src="{% static './images/586470.png' %}"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text">
+                            <h4>لماذا نحن</h4>
+                            <p>
+                                هنالك العديد من الأنواع المتوفرة لنصوص لوريم
+                                إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر
+                                إدخال بعض النوادر أو الكلمات العشوائية إلى النص
+                                إن كنت تريد أن تستخدم نص لوريم إيبسوم ما، عليك
+                                أن تتحقق أولاً أن ليس هناك أي كلمات أو عبارات
+                                محرجة أو غير لائقة مخبأة في هذا النص بينما تعمل
+                                جميع مولّدات نصوص لوريم إيبسوم على الإنترنت على
+                                إعادة تكرار مقاطع من نص لوريم إيبسوم نفسه عدة
+                                مرات بما تتطلبه الحاجة، يقوم مولّدنا هذا
+                                باستخدام كلمات من قاموس يحوي ع
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Why Us -->
+        <!-- Start Services -->
+        <section
+            class="services py-5"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-offset="150"
+        >
+            <div class="container">
+                <h3 class="main-hidd">الخدمات الطبية</h3>
+                <div class="row gap-row">
+                    <div class="col-lg-6">
+                        <div class="box">
+                            <img src="{% static './images/h-3.png' %}" alt="" />
+                            <div class="text">
+                                <h4>تقويم الأسنان</h4>
+                                <p>
+                                    هنالك العديد من الأنواع المتوفرة لنصوص لوريم
+                                    إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر
+                                    إدخال بعض النوادر أو الكلمات العشوائية إلى ا
+                                </p>
+                                <a href="">
+                                    المزيد
+                                    <i class="fa-solid fa-arrow-left-long"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box">
+                            <img src="{% static './images/h-2.png' %}" alt="" />
+                            <div class="text">
+                                <h4>زراعة الأسنان</h4>
+                                <p>
+                                    هنالك العديد من الأنواع المتوفرة لنصوص لوريم
+                                    إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر
+                                    إدخال بعض النوادر أو الكلمات العشوائية إلى ا
+                                </p>
+                                <a href="">
+                                    المزيد
+                                    <i class="fa-solid fa-arrow-left-long"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box">
+                            <img src="{% static './images/Layer 16.png' %}" alt="" />
+                            <div class="text">
+                                <h4>تقويم الاسنان الشفاف</h4>
+                                <p>
+                                    هنالك العديد من الأنواع المتوفرة لنصوص لوريم
+                                    إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر
+                                    إدخال بعض النوادر أو الكلمات العشوائية إلى ا
+                                </p>
+                                <a href="">
+                                    المزيد
+                                    <i class="fa-solid fa-arrow-left-long"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box">
+                            <img src="{% static './images/h-1.png' %}" alt="" />
+                            <div class="text">
+                                <h4>تبييض الأسنان</h4>
+                                <p>
+                                    هنالك العديد من الأنواع المتوفرة لنصوص لوريم
+                                    إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر
+                                    إدخال بعض النوادر أو الكلمات العشوائية إلى ا
+                                </p>
+                                <a href="">
+                                    المزيد
+                                    <i class="fa-solid fa-arrow-left-long"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box">
+                            <img src="{% static './images/Layer 10.png' %}" alt="" />
+                            <div class="text">
+                                <h4>التركيبات الثابتة</h4>
+                                <p>
+                                    هنالك العديد من الأنواع المتوفرة لنصوص لوريم
+                                    إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر
+                                    إدخال بعض النوادر أو الكلمات العشوائية إلى ا
+                                </p>
+                                <a href="">
+                                    المزيد
+                                    <i class="fa-solid fa-arrow-left-long"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box">
+                            <img src="{% static './images/Layer 13.png' %}" alt="" />
+                            <div class="text">
+                                <h4>تجميل الأسنان</h4>
+                                <p>
+                                    هنالك العديد من الأنواع المتوفرة لنصوص لوريم
+                                    إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر
+                                    إدخال بعض النوادر أو الكلمات العشوائية إلى ا
+                                </p>
+                                <a href="">
+                                    المزيد
+                                    <i class="fa-solid fa-arrow-left-long"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box">
+                            <img src="{% static './images/Layer 14.png' %}" alt="" />
+                            <div class="text">
+                                <h4>حالات جراحة الوجه والفكين</h4>
+                                <p>
+                                    هنالك العديد من الأنواع المتوفرة لنصوص لوريم
+                                    إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر
+                                    إدخال بعض النوادر أو الكلمات العشوائية إلى ا
+                                </p>
+                                <a href="">
+                                    المزيد
+                                    <i class="fa-solid fa-arrow-left-long"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box">
+                            <img src="{% static './images/Layer 12.png' %}" alt="" />
+                            <div class="text">
+                                <h4>حشو العصب وعلاج الجذور</h4>
+                                <p>
+                                    هنالك العديد من الأنواع المتوفرة لنصوص لوريم
+                                    إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر
+                                    إدخال بعض النوادر أو الكلمات العشوائية إلى ا
+                                </p>
+                                <a href="">
+                                    المزيد
+                                    <i class="fa-solid fa-arrow-left-long"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="" class="main-btn mt-5 mx-auto">
+                    المزيد من الخدمات
+                    <i class="fa-solid fa-angles-left"></i>
+                </a>
+            </div>
+        </section>
+        <!-- End Services -->
+        <!-- Start Contact  -->
+        <section
+            class="contact"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-offset="150"
+        >
+            <div class="container vh-100 position-relative">
+                <div class="content">
+                    <h4>التميز</h4>
+                 
+                    <p>
+                        افضل مراكز الأسنان فى الشرق الأوسط لعلاج الأسنان نقدم
+                        أفضل خدمات زراعة الأسنان، التقويم والتجميل للأسنان،
+                        وتبييض الأسنان، التركيبات الثابتة، حشو العصب وعلاج
+                        الجذور وتجميل الأسنان بأفضل الطرق العالمية
+                    </p>
+                    <h4>تجربة طبية لا مثيل لها</h4>
+                    <div
+                        class="group-contact mt-4 flex-wrap d-flex align-items-center justify-content-between gap-2"
+                    >
+                        <div class="phone">
+                            <span>لحجز موعد</span>
+                            01145673456
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="whatsapp">
+                            <span>الواتساب</span>
+                            01245782345
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Contact  -->
+        <!-- Start Section counts -->
+        <section
+            class="counts py-5"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-offset="150"
+        >
+            <div class="container">
+                <div class="row gap-row">
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <div class="box active">
+                            <div class="count">98%</div>
+                            <p>نسبة الرضي عن خدمات المركز</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <div class="box">
+                            <div class="count">160</div>
+                            <p>حالة تجميل أسنان</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <div class="box">
+                            <div class="count">732</div>
+                            <p>حالة تقويم أسنان</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <div class="box">
+                            <div class="count">1247</div>
+                            <p>حالة زراعة أسنان</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Section counts -->
+        <!-- Start Section map -->
+        <section
+            class="map"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-offset="150"
+        >
+        
+            <iframe
+                class="w-100 h-100"
+               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d863.8431009519147!2d30.965462031220767!3d29.997461486163996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458573fca14f8dd%3A0x5b4426c019012200!2sThe%20Memorial%20Souad%20Kafafi%20University%20Hospital!5e0!3m2!1sen!2seg!4v1670221739242!5m2!1sen!2seg" 
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+        </section>
+        <!-- End Secction map -->
+       
+           
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} نظام ادارة عيادة
+اسنان{% endblock %}
+
+{% block meta_description %} عياده دنتست افضل عياده اسنان فى
+الشرق الاوسط {% endblock %}
+
+{% block content %}
+<br/><br/>
+ <center> <h1>لوحة المشرف</h1></center>
+<br/><br/>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-4  mydivstyle">
+   <h2 style="color: red;">{{d}}</h2>
+   <a href="{% url 'view_doctor' %}"><h4 style="color:blue">طبيب</h4>
+    <hr class="rounded">
+   </a>
+  </div>
+   <div class="col-sm-4 mydivstyle">
+   <h2 style="color: red;">{{p}}</h2>
+   <a href="{% url 'view_patient' %}"><h4 style="color:blue">عميل</h4>
+    <hr class="rounded">
+   </a>
+  </div>
+   <div class="col-sm-4  mydivstyle" >
+   <h2 style="color: red;">{{a}}</h2>
+   <a href="{% url 'view_appoinment' %}"><h4 style="color:blue">موعد</h4>
+    <hr class="rounded">
+   </a>
+  </div>
+ </div>
+</div>
+
+<br/><br/>
+
+<style>
+ #h1{
+ color:blue;
+ }
+ hr.rounded {
+ border-top: 10px solid lightblue;
+ border-radius: 5px;
+ }
+
+ .mydivstyle:hover {
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+  transform: translateY(-20px);
+  }
+</style>
+
+
+{% endblock %}

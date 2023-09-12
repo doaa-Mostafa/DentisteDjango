@@ -1,0 +1,67 @@
+
+
+
+
+
+
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %} حجز موعد{% endblock %}
+{% block meta_description %} عياده دنتست افضل عياده اسنان فى الشرق الاوسط {% endblock %}
+
+{% block content %}
+
+
+
+<!-- Start Appointment -->
+
+        <section
+            class="why-us py-5"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-offset="150"
+        >
+            <div class="container">
+                <div class="row">
+                    <div
+                        class="col-lg-6 ps-lg-4 text-center text-lg-end mb-3 mb-lg-0"
+                    >
+                        <div class="cont-img">
+                            <img
+                                class="img-fluid"
+                                src="{% static './images/about.png' %}"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text">
+                            <h4>   مراجعة بياناتك :  </h4>
+                            <br/>
+                           <center>
+							<p> الاسم : {{name}}</p>
+							<p> البريد الألكترونى : {{ email}}</p>
+							<p> رقم الهاتف : {{ mobile}}</p>
+							<p> الوقت : {{ time}}</p>
+							<p>التاريخ : {{ date}}</p>
+							</center>
+
+							<br/><br/>
+
+							<strong>
+							ملاحظة :
+						    </strong>
+						    تم أرسال رسالتك سنرد فى وقت قصير لتأكيد الموعد 
+							
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- End Appointment -->
+
+
+ {% endblock %}

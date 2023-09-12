@@ -1,0 +1,85 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+ <br/>
+    <br/>
+<h2 class="text-center">
+                اضافة موعد
+            </h2>
+<div class="container2">
+
+
+
+
+        </div>
+    <br/>
+
+            </div>
+
+
+                <form  method="post">
+                    {% csrf_token %}
+                      <label>اسم الدكتور </label>
+                            <select name="doctor" class="form-control">
+                                {% for i in doctor %}
+                                <option value="{{i.doctor_name}}">{{i.doctor_name}}</option>
+                                {% endfor %}
+                            </select>
+
+                       <label>اسم العميل </label>
+                            <select name="patient" class="form-control" >
+                                {% for i in patient %}
+                                <option value="{{i.name}}">{{i.name}}</option>
+                                {% endfor %}
+                            </select>
+
+                            <label>التاريخ </label>
+                                <input type="date" class="form-control" name="date"  required/>
+                           <label>الوقت </label>
+                                <input type="time" class="form-control" name="time"  required/>
+
+
+                        <br/>
+                       <br/>
+                        <div class="button">
+                            <input type="submit" value="اضافة" class="form-control btn btn-primary"/>
+                        </div>
+                    <br/>
+                       <br/>
+
+                </form>
+
+            </div>
+
+<style>
+
+     input ,label , select{
+      max-width:200px;
+     position: relative;
+     left: -650px;
+
+     padding:10px;
+     }
+
+
+</style>
+
+
+
+{% if error ==  "no" %}
+<script>
+    alert('Record Saved Successfully ');
+    window.location=({% url 'view_appoinment' %});
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Something went wrong , Try Again');
+
+</script>
+{% endif %}
+
+
+
+
+{% endblock %}
